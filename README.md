@@ -22,15 +22,19 @@ Okay Class, this is our big group project. We have until February to complete it
 
 #### Variables
 - [nft scid]_owner:[dero address string form]
-- booking_[scid]_[count]_start:[timestamp]
-- booking_[scid]_[count]_end:[timestamp]
-- booking_[scid]_[count]_renter:[dero address string]
-- booking_[scid]_[count]_owner:[dero address string]
-- booking_[scid]_[count]_rating_property:[0-5 stars]
-- booking_[scid]_[count]_rating_location:[0-5 stars]
-- booking_[scid]_[count]_rating_renter:[0-5 stars]
-- booking_[scid]_[count]_rating_owner:[0-5 stars]
-- booking_[scid]_[count]_rating_overall:[0-5 stars]
+- booking_[property_scid]_[count]_start:[timestamp]
+- booking_[property_scid]_[count]_end:[timestamp]
+- booking_[property_scid]_[count]_renter:[dero address string]
+- booking_[property_scid]_[count]_owner:[dero address string]
+- booking_[property_scid]_[count]_rating_property:[0-5 stars]
+- booking_[property_scid]_[count]_rating_location:[0-5 stars]
+- booking_[property_scid]_[count]_rating_renter:[0-5 stars]
+- booking_[property_scid]_[count]_rating_owner:[0-5 stars]
+- booking_[property_scid]_[count]_rating_overall:[0-5 stars]
+- [property_scid]_request_bk_start_[timestamp_key]
+- [property_scid]_request_booker_[timestamp_key]
+- [property_scid]_request_bk_start_[timestamp_key]
+- [property_scid]_request_bk_end_[timestamp_key]
 
 
 
