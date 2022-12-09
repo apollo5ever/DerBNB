@@ -1,4 +1,5 @@
 // this function allows the owner of the property to set the Damage Deposit Amount
+// this will need the part that determines what the [nft scid] is going to be
 
 Function SetDamageDepositAmount(damage_deposit Uint64) Uint64
 10 IF LOAD("[nft scid]_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 40
