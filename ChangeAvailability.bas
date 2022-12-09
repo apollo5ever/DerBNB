@@ -7,11 +7,11 @@
 
 ' On-chain booking data will look like the following & will prohibit availability
 '  for these dates from being modified in the calendar
-' <prop_id>_booker_<timestamp>: (dero address)
-' <prop_id>_bk_start_<timestamp>:(unix timestamp)
-' <prop_id>_bk_end_<timestamp>:(unix timestamp)
-' NOTE: <timestamp> is a unique identifier for that particular booking.  It is the timestamp
-'  reflecting the time the booking was made, as a person might book the same property multiple times
+' <prop_id>_booker_<counter>: (dero address)
+' <prop_id>_bk_start_<counter>:(unix timestamp)
+' <prop_id>_bk_end_<counter>:(unix timestamp)
+' <prop_id>_bk_last: (integer set by last booking)
+' NOTE: <counter> is a unique identifier for that particular booking.
 
 Function ChangeAvailability(property_id String, calendar_url String)
 10 IF LOAD("owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 100
