@@ -21,7 +21,7 @@ Okay Class, this is our big group project. We have until February to complete it
 - SetWhitelist
 
 #### Variables
-- [nft scid]_owner:[dero address string form]
+- [property scid]_owner:[dero address string form]
 - booking_[property_scid]_[count]_start:[timestamp]
 - booking_[property_scid]_[count]_end:[timestamp]
 - booking_[property_scid]_[count]_renter:[dero address string]
@@ -31,10 +31,10 @@ Okay Class, this is our big group project. We have until February to complete it
 - booking_[property_scid]_[count]_rating_renter:[0-5 stars]
 - booking_[property_scid]_[count]_rating_owner:[0-5 stars]
 - booking_[property_scid]_[count]_rating_overall:[0-5 stars]
-- [property_scid]_request_bk_start_[timestamp_key]
-- [property_scid]_request_booker_[timestamp_key]
-- [property_scid]_request_bk_start_[timestamp_key]
-- [property_scid]_request_bk_end_[timestamp_key]
+- [property_scid]_ request_bk_start_[timestamp_key] : [timestamp]
+- [property_scid]_ request_booker_[timestamp_key] : [timestamp]
+- [property_scid]_ request_bk_start_[timestamp_key] : [timestamp]
+- [property_scid]_ request_bk_end_[timestamp_key] : [timestamp]
 
 
 
