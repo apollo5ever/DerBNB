@@ -9,16 +9,17 @@ Okay Class, this is our big group project. We have until February to complete it
 
 ### Booking Manager Contract
 #### Functions
-- ListProperty
-- RequestBooking
-- ConfirmBooking
-- CancelBooking
-- SetDamageDepositAmount
-- ReleaseDamageDeposit
-- ChangeAvailability
-- RateExperience
-- ChangePrice
-- SetWhitelist
+- ListProperty (first draft complete)
+- RequestBooking (first draft complete)
+- ConfirmBooking (first draft complete)
+- CancelBooking (crypto jimi working on it)
+- SetDamageDepositAmount (first draft complete)
+- ReleaseDamageDeposit (capt rory working on it)
+- ChangeAvailability (first draft complete)
+- RateExperience (first draft complete)
+- ChangePrice (first draft complete)
+- SetWhitelist 
+- DelistProperty (pedro working on it)
 
 #### Variables
 - [property scid]_owner:[dero address string form]
