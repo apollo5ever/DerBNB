@@ -1,6 +1,6 @@
-Function ChangePrice(newPrice Uint64) Uint64
-10 IF LOAD("unitOwner") != ADDRES_STRING(SIGNER()) THEN GOTO 40
-20 STORE("newPrice", newPrice)
+Function ChangePrice(property_id String, newPrice Uint64) Uint64
+10 IF LOAD(property_id+"_owner") != ADDRES_STRING(SIGNER()) THEN GOTO 40
+20 STORE(property_id+"_Price", newPrice)
 30 RETURN 0
 40 RETURN 1
 End Function 
@@ -22,7 +22,7 @@ End Function
 ' NOTE: <counter> is a unique identifier for that particular booking.
 
 Function ChangeAvailability(property_id String, calendar_url String)
-10 IF LOAD("owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 100
+10 IF LOAD(property_id+"_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 100
 20 STORE(property_id + "_bk_avail", calendar_url)
 99 RETURN 0
 100 RETURN 1
@@ -38,7 +38,8 @@ End Function
 ' <prop_id>_bk_end_<DIM val we just stored>:(unix timestamp)
 
 Function ConfirmBooking(property_id, start_timestamp, end_timestamp)
-10 DIM booking_id as Uint64
+10 IF LOAD(property_id+"_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 100
+15 DIM booking_id as Uint64
 20 IF EXISTS(property_id + "_bk_last") == 0 THEN LET booking_id = 0 ELSE LET booking_id = LOAD(property_id + "_bk_last")
 25 booking_id = booking_id + 1
 30 STORE(property_id + "_bk_last", booking_id)
@@ -46,20 +47,10 @@ Function ConfirmBooking(property_id, start_timestamp, end_timestamp)
 50 STORE(property_id + "_bk_start_" + booking_id, start_timestamp)
 60 STORE(property_id + "_bk_end_" + booking_id, end_timestamp)
 99 RETURN 0
+100 RETURN 1
 End Function
 
 'This function allows renters and owners to rate their interactions with each other
-'I'm proposing the following variables:
-'[nft scid]_owner:[dero address string form]
-'booking_[scid]_[count]_start:[timestamp]
-'booking_[scid]_[count]_end:[timestamp]
-'booking_[scid]_[count]_renter:[dero address string]
-'booking_[scid]_[count]_owner:[dero address string]
-'booking_[scid]_[count]_rating_property:[0-5 stars]
-'booking_[scid]_[count]_rating_location:[0-5 stars]
-'booking_[scid]_[count]_rating_renter:[0-5 stars]
-'booking_[scid]_[count]_rating_owner:[0-5 stars]
-'booking_[scid]_[count]_rating_overall:[0-5 stars]
 
 Function RateExperience(String ID, Uint64 Count, Uint64 Renter, Uint64 Owner, Uint64 Property, Uint64 Location, Uint64 Overall) Uint64
 10 IF ADRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_renter") THEN GOTO 40
@@ -80,7 +71,7 @@ End Function
 '  The value of the start/end variables are the dates the person is requesting the booking
 ' The 'timestamp_key' value should be set by the UI to be Date.now()
 
-Function RequestBooking(property_id String timestamp_key String) String
+Function RequestBooking(property_id String, timestamp_key String) String
 10 IF timestamp_key == 0 THEN GOTO 100
 20 IF ADDRESS_STRING(SIGNER()) == "" THEN GOTO 100
 30 IF EXISTS(property_id + "_request_bk_start_" + timestamp_key ) != 0 THEN GOTO 100
@@ -94,9 +85,9 @@ End Function
 // this function allows the owner of the property to set the Damage Deposit Amount
 // this will need the part that determines what the [nft scid] is going to be
 
-Function SetDamageDepositAmount(damage_deposit Uint64) Uint64
-10 IF LOAD("[nft scid]_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 40
-20 STORE("damage_deposit", damage_deposit)
+Function SetDamageDepositAmount(property_id String, damage_deposit Uint64) Uint64
+10 IF LOAD(property_id+"_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 40
+20 STORE(property_id+"_damage_deposit", damage_deposit)
 30 RETURN 0
 40 RETURN 1
 End Function
