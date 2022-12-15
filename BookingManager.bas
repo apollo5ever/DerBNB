@@ -1,5 +1,5 @@
 Function ChangePrice(property_id String, newPrice Uint64) Uint64
-10 IF LOAD(property_id+"_owner") != ADDRES_STRING(SIGNER()) THEN GOTO 40
+10 IF LOAD(property_id+"_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 40
 20 STORE(property_id+"_Price", newPrice)
 30 RETURN 0
 40 RETURN 1
@@ -53,8 +53,8 @@ End Function
 'This function allows renters and owners to rate their interactions with each other
 
 Function RateExperience(String ID, Uint64 Count, Uint64 Renter, Uint64 Owner, Uint64 Property, Uint64 Location, Uint64 Overall) Uint64
-10 IF ADRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_renter") THEN GOTO 40
-20 IF ADRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_owner") THEN GOTO 90
+10 IF ADDRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_renter") THEN GOTO 40
+20 IF ADDRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_owner") THEN GOTO 90
 30 RETURN 1
 40 STORE("booking_"+ID+"_"+Count+"_rating_property",Property)
 50 STORE("booking_"+ID+"_"+Count+"_rating_location",Location)

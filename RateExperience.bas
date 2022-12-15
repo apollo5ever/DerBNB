@@ -12,8 +12,8 @@
 'booking_[scid]_[count]_rating_overall:[0-5 stars]
 
 Function RateExperience(String ID, Uint64 Count, Uint64 Renter, Uint64 Owner, Uint64 Property, Uint64 Location, Uint64 Overall) Uint64
-10 IF ADRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_renter") THEN GOTO 40
-20 IF ADRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_owner") THEN GOTO 90
+10 IF ADDRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_renter") THEN GOTO 40
+20 IF ADDRESS_STRING(SIGNER()) == LOAD("booking_"+ID+"_"+Count+"_owner") THEN GOTO 90
 30 RETURN 1
 40 STORE("booking_"+ID+"_"+Count+"_rating_property",Property)
 50 STORE("booking_"+ID+"_"+Count+"_rating_location",Location)
