@@ -18,7 +18,7 @@ Function ReleaseDamageDepositAmount(property_id Uint64, booking_id Uint64, damag
 120 LET release = deposit - damage // amount to send back to renter after damages deducted
 130 STORE(property_id + "_" + booking_id + "_damage_amount_in_dero", damage_amount_in_dero) // store the damage amount in dero for this particular booking
 140 STORE(property_id + "_" + booking_id + "_damage_description", damage_description) // store the description of the damage
-150 STORE(property_id + "_" + booking_id + "_renter", renter) // store the dero address of the renter causing the damage
+150 STORE(property_id + "_" + booking_id + "_damage_renter", renter) // store the dero address of the renter causing the damage
 160 SEND_DERO_TO_ADDRESS(renter, release) // release the dero deposit amount back to renter if any
 999 RETURN 0
 1000 RETURN 1
