@@ -11,7 +11,7 @@ Function ReleaseDamageDepositAmount(property_id Uint64, booking_id Uint64, damag
 50 DIM damage as Uint64 // the amount of damage in dero
 60 DIM release as Uint64 // the deposit amount less damage amount to be released back to renter
 70 LET renter = LOAD(property_id + "_booker_" + booking_id) // dero address of the renter that was stored in ConfirmBooking function
-80 LET deposit = LOAD(property_id + "_" + damage_deposit) // dero amount stored in SetDamageDepositAmount function
+80 LET deposit = LOAD(property_id + "_damage_deposit") // dero amount stored in SetDamageDepositAmount function
 90 IF damage_amount_in_dero > deposit THEN GOTO 1000 // damage amount can't be more than deposit amount
 100 IF damage_amount_in_dero == "" THEN LET damage = 0 ELSE LET damage = damage_amount_in_dero // default to 0 if damage_amount_in_dero is left blank
 110 IF damage > 0 & damage_description == "" THEN GOTO 1000 // a 'damage_description' must be given if the owner decides to withold damage dero
