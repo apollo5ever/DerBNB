@@ -2,11 +2,13 @@ Function Initialize() Uint64
 10 RETURN 0
 End Function
 
-Function ListProperty(scid String) Uint64
+Function ListProperty(scid String, price Uint64, damage_deposit Uint64) Uint64
 10 IF ASSETVALUE(HEXDECODE(scid))!=1 THEN GOTO 100
 20 STORE(scid+"_owner",ADDRESS_STRING(SIGNER()))
 30 IF EXISTS(scid + "_bk_last") == 0 THEN GOTO 40 ELSE GOTO 99
 40 STORE(scid + "_bk_last",0)
+50 STORE(scid + "_price", price)
+60 STORE(scid + "_damage_deposit", damage_deposit)
 99 RETURN 0
 100 RETURN 1
 End Function 
@@ -21,7 +23,7 @@ End Function
 
 Function ChangePrice(property_id String, newPrice Uint64) Uint64
 10 IF LOAD(property_id+"_owner") != ADDRESS_STRING(SIGNER()) THEN GOTO 40
-20 STORE(property_id+"_Price", newPrice)
+20 STORE(property_id+"_price", newPrice)
 30 RETURN 0
 40 RETURN 1
 End Function 
@@ -109,7 +111,7 @@ End Function
 
 Function RequestBooking(property_id String, timestamp_key Uint64, start_timestamp Uint64, end_timestamp Uint64) Uint64
 10 IF timestamp_key == 0 THEN GOTO 100
-15 IF DEROVALUE() < LOAD(property_id+"_Price") THEN GOTO 100
+15 IF DEROVALUE() < LOAD(property_id+"_price") * (end_timestamp - start_timestamp)/86400 + LOAD(property_id+"_damage_deposit") THEN GOTO 100
 20 IF ADDRESS_STRING(SIGNER()) == "" THEN GOTO 100
 30 IF EXISTS(property_id + "_request_bk_start_" + timestamp_key ) != 0 THEN GOTO 100
 40 STORE(property_id + "_request_booker_" + timestamp_key, ADDRESS_STRING(SIGNER()))
