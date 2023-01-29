@@ -29,7 +29,9 @@ A decentralized Airbnb built on the Dero blockchain that allows you to own and r
 - [ ] View history
 - [ ] View upcoming
 - [ ] Message owner
-- [ ] Rate Experience
+- [ ] Rate experience
+- [ ] View ratings
+- [ ] Filter listings
 
 ### Owner
 - [x] View my listings
@@ -43,7 +45,9 @@ A decentralized Airbnb built on the Dero blockchain that allows you to own and r
 - [ ] View ongoing rentals
 - [ ] List property
 - [ ] Remove listing
-- [ ] Rate Experience
+- [ ] Rate experience
+- [ ] View and respond to ratings
+- [ ] Release damage deposit
 
 ## Built with
 Dero smart contract (DVM Basic) + Reactjs (vite)
