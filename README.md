@@ -2,7 +2,7 @@
 
 A decentralized Airbnb built on the Dero blockchain that allows you to own and rent properties using non-fungible assets (NFAs). With a smart contract managing all rentals, DerBNB offers a secure and efficient way to manage your properties.
 
-# Live Demo
+## Live Demo
 
 https://still-cell-4977.on.fleek.co
 
