@@ -22,7 +22,7 @@ const Form = (props) => {
     
     const [err0, res0] = await to(deroBridgeApi.wallet('start-transfer', {
       
-         "scid": "f74ad1b79b77c511fa57bda13148f39243a4dd12ab81871bf5a7b857cd9299f7",
+         "scid": "f97c7ce530feec7dae6f65afb998c3c833c477895a8839399d99de1d25d3deca",
          "ringsize": 2,
          "transfers":[
             {
