@@ -44,7 +44,7 @@ A decentralized Airbnb built on the Dero blockchain that allows you to own and r
 - [ ] Remove listing
 
 ## Built with
-[Insert technology stack here]
+Dero smart contract (DVM Basic) + Reactjs (vite)
 
 ## Contributors
-[Insert names of contributors here]
+apollo and the Dero Dev 101 Class
