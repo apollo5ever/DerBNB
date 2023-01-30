@@ -36,10 +36,12 @@ https://still-cell-4977.on.fleek.co
 - [ ] Rate experience
 - [ ] View ratings
 - [ ] Filter listings
+- [x] Block off calendar with bookings
 
 ### Owner
 - [x] View my listings
-- [ ] Edit listings
+- [x] Edit listing price
+- [ ] Edit listing metadata
 - [x] View requests
 - [x] Confirm request
 - [x] Reject request
