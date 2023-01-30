@@ -2,14 +2,19 @@ import React, { useState, useCallback, useContext} from "react";
 import to from "await-to-js";
 import Calendar from "./Calendar";
 import { LoginContext } from "./LoginContext";
+import { differenceInCalendarDays,addDays } from "date-fns";
 
 const Form = (props) => {
   const [dateRange, setDateRange] = useState({});
   const [state,setState] = useContext(LoginContext)
 
+
+
   const handleSubmit = () => {
     // Do something with the date range, for example:
     console.log(dateRange);
+
+    
 
     const start=dateRange.startDate.getTime()/1000
     const end=dateRange.endDate.getTime()/1000
@@ -26,7 +31,7 @@ const Form = (props) => {
          "ringsize": 2,
          "transfers":[
             {
-                "destination":"deto1qypyr02kkev76vwdsm3rxscyfwndq0tvq0x68p78t5w86x6fx99g7qqqr6dzk",
+                "destination":"dero1qytqfq2feqy63k0ycdj464h93h5xpqnwhwqldhqphha599jnwx60yqq4m3zxj",
                 "burn":price
             }
 
@@ -65,7 +70,7 @@ const Form = (props) => {
 
   return (
     <form>
-      <Calendar onChange={setDateRange} />
+      <Calendar onChange={setDateRange} disabledDates={props.disabledDates} />
       <button type="button" onClick={handleSubmit}>
         Request Booking
       </button>

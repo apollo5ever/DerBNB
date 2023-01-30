@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import RentalCard from "./RentalCard";
 import ListingCard from "./ListingCard";
 import hex2a from "./hex2a";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { LoginContext } from "./LoginContext";
 import to from "await-to-js";
 
@@ -126,7 +126,10 @@ const UserPage = () => {
             <h2>My Listings</h2>
             <div className="listings-grid">
                 {listings.map(listing => (
-                    <ListingCard listing={listing} key={listing.id} />
+                    <div>
+                        <ListingCard listing={listing} key={listing.id} />
+                        <Link to={`/edit/${listing.scid}`}>Edit</Link>
+                    </div>
                 ))}
             </div>
         </div>

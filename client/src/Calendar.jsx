@@ -4,9 +4,12 @@ import PropTypes from "prop-types";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
-import { addDays, subDays } from "date-fns";
+import { addDays, subDays,differenceInCalendarDays } from "date-fns";
 
-const Calendar = ({ onChange }) => {
+const Calendar = ({ onChange,disabledDates }) => {
+
+
+
   const [state, setState] = useState([
     {
       startDate: subDays(new Date(), 7),
@@ -30,6 +33,7 @@ const Calendar = ({ onChange }) => {
       months={2}
       ranges={state}
       direction="horizontal"
+      disabledDates={disabledDates}
     />
   );
 };

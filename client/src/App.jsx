@@ -10,6 +10,7 @@ import Front from './Front'
 import Listing from './Listing'
 import UserPage from './UserPage'
 import Navbar from './Navbar'
+import EditListing from './EditListing'
 
 function App() {
   const deroBridgeApiRef = useRef();
@@ -70,6 +71,7 @@ function App() {
         <Route path="/browse" element={<Browse/>}/>
         <Route path="/listing/:scid" element={<Listing/>}/>
         <Route path="/user/:address" element={<UserPage/>}/>
+        <Route path="/edit/:scid" element={<EditListing/>}/>
       </Route>
 
     </Routes>

@@ -10,6 +10,7 @@ import { useState } from "react"
 import Form from "./Form"
 import Calendar from "./Calendar"
 import ImageGallery from "./ImageGallery"
+import GetBookings from "./GetBookings"
 
 export default function Listing(){
 const [state,setState]=useContext(LoginContext)
@@ -19,6 +20,8 @@ const [listing,setListing] = useState({})
 const onChange = (ranges) => {
     console.log(ranges);
   };
+
+const [bookings,setBookings]=useState([])
 
 const getListing = async ()=>{
     const deroBridgeApi = state.deroBridgeApiRef.current
@@ -35,7 +38,7 @@ const getListing = async ()=>{
            return list
          })
          
-         
+            setBookings(GetBookings(scData,scid))
             setListing(list)
           console.log("list",list)
 }
@@ -84,7 +87,9 @@ useEffect(()=>{
         <p>This property is available for rent: {listing.price/100000} Dero per night with a {listing.damage/100000} Dero damage deposit.</p>
         
         }
-         <Form property_id={listing.scid} price={listing.price} damage={listing.damage} />
+         <Form property_id={listing.scid} price={listing.price} damage={listing.damage} disabledDates={bookings} />
+
+         
     </div>)
 
 }
