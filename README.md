@@ -24,6 +24,8 @@ https://still-cell-4977.on.fleek.co
 - [x] Cancel booking
 - [x] Change availability
 - [x] Rate experience
+- [ ] Release damage deposit
+- [ ] Improve cancel function
 
 ## UI To-Do
 ### Renter
