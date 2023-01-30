@@ -21,7 +21,7 @@ const UserPage = () => {
         if(listings.length==0) return
         const deroBridgeApi = state.deroBridgeApiRef.current 
         let [err, res] = await to(deroBridgeApi.daemon('get-sc',{
-            scid:"f97c7ce530feec7dae6f65afb998c3c833c477895a8839399d99de1d25d3deca",
+            scid:"89670c5a56cb2db334e90a4371583ed6fd0c689250ffc74b67b21d954bca9281",
             code:false,
             variables:true
         }))
@@ -48,7 +48,7 @@ const UserPage = () => {
     const getListings = async ()=>{
         const deroBridgeApi = state.deroBridgeApiRef.current
             let [err, res] = await to(deroBridgeApi.daemon('get-sc', {
-                    scid:"f97c7ce530feec7dae6f65afb998c3c833c477895a8839399d99de1d25d3deca",
+                    scid:"89670c5a56cb2db334e90a4371583ed6fd0c689250ffc74b67b21d954bca9281",
                     code:false,
                     variables:true
             }))
