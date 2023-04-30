@@ -26,7 +26,7 @@ const [bookings,setBookings]=useState([])
 const getListing = async ()=>{
     const deroBridgeApi = state.deroBridgeApiRef.current
         let [err, res] = await to(deroBridgeApi.daemon('get-sc', {
-                scid:"89670c5a56cb2db334e90a4371583ed6fd0c689250ffc74b67b21d954bca9281",
+                scid:"cfbd566d3678dec6e6dfa3a919feae5306ab12af1485e8bcf9320bd5a122b1d3",
                 code:false,
                 variables:true
         }))

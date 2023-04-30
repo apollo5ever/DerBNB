@@ -4,7 +4,7 @@ export default function ListingCard({listing}){
     let imgSrc;
     if (listing.metadata && listing.metadata.photos && listing.metadata.photos[0].startsWith('ht')) {
         imgSrc = listing.metadata.photos[0];
-    } else {
+    } else if(listing.metadata && listing.metadata.photos){
         imgSrc = `https://ipfs.io/ipfs/${listing.metadata.photos[0]}`;
       
     }
